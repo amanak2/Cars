@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  displacment: 1.5
+  power: 1
+  torque: 1.5
+  layout: MyString
+  car: one
+
+two:
+  type: 
+  displacment: 1.5
+  power: 1
+  torque: 1.5
+  layout: MyString
+  car: two

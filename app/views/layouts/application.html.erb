@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NewApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-brand">
+          <%= link_to "Fav Cars", root_path %>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "New Car", new_car_path %></li>
+          <li><%= link_to "Sign Out", root_path %></li>
+        </ul>
+      </div>
+    </nav>
+    
+    <div class="container">
+      <% flash.each do |name, msg|%>
+        <%= content_tag :div, msg, class: "alert"  %>
+      <% end %>
+      <%= yield %>
+    </div>
+
+  </body>
+</html>

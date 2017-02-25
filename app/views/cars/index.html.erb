@@ -1,0 +1,16 @@
+<% @car.each_slice(3) do |car| %>
+  <div class="row">
+    <% car.each do |car| %>
+      <div class="col-md-4">
+        <div class="car">
+          <div class="image_wrapper">
+            <%= link_to car do %>
+              <%= image_tag car.image.url(:medium) %>
+            <% end %>
+            <h2><%= link_to car.name, car %></h2>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,112 @@
+<div class="main_content">
+
+  <div id="car_top" class="row">
+    <div class="col-md-5">
+      <%= image_tag @car.image.url(:medium, class: "car_image") %>
+    </div>
+    <div class="col-md-7">
+      <div id="car_info">
+        <h1><%= @car.name %></h1>
+        <h4><%= @car.company %></h4>
+        <p>Submitted by: <%= @car.user.username %></p>
+        <div class="btn-group" role="group" aria-label="...">
+          <button type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-comment" aria-hidden="true"> <%= @car.comments.count %></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-3">
+      <h2>Engine</h2>
+      <div id="Engine">
+        <ul>
+          <% @car.engines.each do |engine| %>
+            <li><h5>Type: </h5><%= engine.engine_type %></li>
+            <li><h5>Displacment(CC): </h5><%= engine.displacment %></li>
+            <li><h5>Power(BHP): </h5><%= engine.power %></li>
+            <li><h5>Torque(Nm): </h5><%= engine.torque %></li>
+            <li><h5>Layout: </h5><%= engine.layout %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <h2>Performance</h2>
+      <div id="Performance">
+        <ul>
+          <% @car.performances.each do |performance| %>
+            <li><h5>Top Speed(km/h): </h5><%= performance.top_speed %></li>
+            <li><h5>Acceleration(0-60)Seconds: </h5><%= performance.acceleration1 %></li>
+            <li>Acceleration(0-100)Seconds: <%= performance.acceleration2 %></li>
+            <li><h5>Power to Weight Ratio(BHP/t): </h5><%= performance.power_to_weight %></li>
+            <li><h5>Torque to Weight Ratio(Nm/t): </h5><%= performance.torque_to_weight %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <h2>Transmission</h2>
+      <div id="Transmission">
+        <ul>
+          <% @car.transmissions.each do |transmission| %>
+            <li><h5>Type: </h5><%= transmission.trans_type %></li>
+            <li><h5>Speeds: </h5><%= transmission.speeds %></li>
+            <li><h5>Drive Type: </h5><%= transmission.drive_type %></li>
+            <li><h5>Clutch Type: </h5><%= transmission.clutch_type %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <h2>Dimensions</h2>
+      <div id="Dimension">
+        <ul>
+          <% @car.dimensions.each do |dimension| %>
+            <li><h5>Length(mm): </h5><%= dimension.length %></li>
+            <li><h5>Width(mm): </h5><%= dimension.width %></li>
+            <li><h5>heigth(mm): </h5><%= dimension.height %></li>
+            <li><h5>Weight(Kg): </h5><%= dimension.weight %></li>
+            <li><h5>Wheel Base(mm): </h5><%= dimension.wheel_base %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <h2>Comments</h2>
+      <div id="Comment">
+        <%= render @car.comments %>
+
+        <h3>Add new comment</h3>
+        <%= simple_form_for ([@car, @car.comments.build]) do |f| %>
+          <p><%= f.input :name, input_html: {class: "form-control"} %></p>
+          <p><%= f.input :body, input_html: {class: "form-control"} %></p>
+          <p><%= f.button :submit, class: "btn btn-primary"%></p>
+        <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <%= link_to "Back", root_path, class: "btn btn-default" %>
+        <%= link_to "Edit", edit_car_path, class: "btn btn-default" %>
+        <%= link_to "Delete", car_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-default" %>
+      </div>
+    </div>
+
+  </div>
+</div>

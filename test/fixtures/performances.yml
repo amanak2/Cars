@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  top_speed: 1
+  acceleration1: 1.5
+  acceleration2: 1.5
+  power_to_weight: 1.5
+  torque_to_weight: 1.5
+  car: one
+
+two:
+  top_speed: 1
+  acceleration1: 1.5
+  acceleration2: 1.5
+  power_to_weight: 1.5
+  torque_to_weight: 1.5
+  car: two

@@ -1,0 +1,12 @@
+<div class="form-inline clearfix">
+  <div class="nested-fields">
+    <%= f.input :top_speed, input_html: {class: "form-input form-control"} %>
+    <%= f.input :acceleration1, label: "Acceleration(0-60)", input_html: {class: "form-input form-control"} %>
+    <%= f.input :acceleration2, label: "Acceleration(0-100)", input_html: {class: "form-input form-control"} %>
+    <%= f.input :power_to_weight, label: "Power to Weight Ratio", input_html: {class: "form-input form-control"} %>
+    <%= f.input :torque_to_weight, label: "Torque to Weight Ratio", input_html: {class: "form-input form-control"} %>
+    <%= link_to_remove_association "Remove", f, class: "form-button btn btn-default"%>
+
+  </div>
+
+</div>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  speeds: 1
+  drive_type: MyString
+  clutch_type: MyString
+  car: one
+
+two:
+  type: 
+  speeds: 1
+  drive_type: MyString
+  clutch_type: MyString
+  car: two
